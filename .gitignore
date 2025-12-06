@@ -1,42 +1,21 @@
-.gradle
-build/
-!gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
-*.iws
+# Archivos de IntelliJ IDEA
+.idea/
 *.iml
-*.ipr
+
+# Archivos de compilación
+/build/
 out/
-!**/src/main/**/out/
-!**/src/test/**/out/
 
-### Eclipse ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+# Archivos de Gradle
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+# Archivos de logs
+*.log
 
-### VS Code ###
-.vscode/
-
-### Mac OS ###
+# Archivos del sistema operativo
 .DS_Store
+Thumbs.db
+
+# Archivos de pruebas
+/test-output/
