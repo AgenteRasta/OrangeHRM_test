@@ -1,21 +1,18 @@
-# Archivos de IntelliJ IDEA
+# Ignorar archivos y carpetas específicas
+nivo-slider.css
+nivoslider.jquery.json
+scripts/
+
+# Ignorar todo lo generado en target/
+target/
+
+# Ignorar archivos de logs
+*.log
+
+# Ignorar archivos de configuración de IDE
 .idea/
 *.iml
 
-# Archivos de compilación
-/build/
-out/
-
-# Archivos de Gradle
-.gradle/
-!gradle/wrapper/gradle-wrapper.jar
-
-# Archivos de logs
-*.log
-
-# Archivos del sistema operativo
+# Ignorar archivos de sistema
 .DS_Store
 Thumbs.db
-
-# Archivos de pruebas
-/test-output/

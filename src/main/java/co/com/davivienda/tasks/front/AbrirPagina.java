@@ -1,21 +1,29 @@
-package co.com.proteccion.tasks.frontend;
+package co.com.davivienda.tasks.front;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Open;
 
+import java.util.logging.Logger;
 
-public class OpenMainPage implements Task {
+
+public class AbrirPagina implements Task {
+    Logger LOGGER = Logger.getLogger(AbrirPagina.class.getName());
     @Override
     public <T extends Actor> void performAs(T actor) {
+        try {
+            actor.wasAbleTo(
+                    Open.url("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+            );
+            LOGGER.info("Se inicia la pagina correctamente");
+        }catch (Exception e){
+             LOGGER.warning(e.getMessage());
+        }
 
-        actor.wasAbleTo(
-                Open.url("https://vaxtpmde69.proteccion.com.co/portalafiliados/afiliados/certifacil")
-        );
     }
 
-    public static OpenMainPage openMainPage() {
-        return Tasks.instrumented(OpenMainPage.class);
+    public static AbrirPagina abrirPagina() {
+        return Tasks.instrumented(AbrirPagina.class);
     }
 }

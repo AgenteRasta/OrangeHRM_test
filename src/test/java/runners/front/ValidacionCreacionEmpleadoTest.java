@@ -11,5 +11,5 @@ import org.junit.runner.RunWith;
         tags = "@E2E",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
-public class ValidacionCreacionEmpleadoTestRunner {
+public class ValidacionCreacionEmpleadoTest {
 }

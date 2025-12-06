@@ -13,7 +13,7 @@ public class SetUpFront {
     @Managed
     protected WebDriver webDriver;
 
-    public static final String ACTOR_NAME = "Bartolo";
+    public static final String ACTOR_NAME = "Estiven";
     private void setUpStageAndActor() {
         OnStage.setTheStage(Cast.ofStandardActors());
         OnStage.theActorCalled(ACTOR_NAME).can(BrowseTheWeb.with(webDriver));
