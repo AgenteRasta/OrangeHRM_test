@@ -14,10 +14,9 @@ pipeline {
 
         stage('Build & Test') {
             steps {
-                bat 'gradlew clean test --info'
+                bat './gradlew clean test aggregate --info'
             }
         }
-
 
         stage('Publicar reporte Serenity') {
             steps {

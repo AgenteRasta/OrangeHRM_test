@@ -1,10 +1,10 @@
 package runners.front;
 
 import io.cucumber.junit.CucumberOptions;
-import net.serenitybdd.junit.runners.SerenityRunner;
+import net.serenitybdd.cucumber.CucumberWithSerenity;
 import org.junit.runner.RunWith;
 
-@RunWith(SerenityRunner.class)
+@RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         glue = "stepdefinitions/front/creacionEmpleado",
         features = "src/test/resources/features/front/ValidacionCreacionEmpleado.feature",
