@@ -25,10 +25,8 @@ tasks.withType(Test) {
 
 repositories {
     mavenCentral()
-    maven {
-        url "https://repo.serenity-bdd.info"
-    }
 }
+
 
 buildscript {
     repositories {

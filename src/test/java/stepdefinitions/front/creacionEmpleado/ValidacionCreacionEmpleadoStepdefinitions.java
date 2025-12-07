@@ -1,5 +1,6 @@
 package stepdefinitions.front.creacionEmpleado;
 
+import co.com.davivienda.drivers.BrowserStackWebDriver;
 import co.com.davivienda.models.Empleado;
 import co.com.davivienda.questions.ValidacionCreacionEmpleado;
 import co.com.davivienda.tasks.front.*;
@@ -8,7 +9,12 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import net.serenitybdd.screenplay.actors.OnStage;
+import net.serenitybdd.screenplay.actors.OnlineCast;
+import org.openqa.selenium.WebDriver;
 import setup.SetUpBack;
+
+import java.net.MalformedURLException;
 
 import static co.com.davivienda.tasks.front.AbrirPagina.abrirPagina;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
@@ -21,8 +27,12 @@ public class ValidacionCreacionEmpleadoStepdefinitions extends SetUpBack {
     private Empleado empleadoFront=new Empleado();
 
     @Before
-    public void setUp() {
+    public void setUp() throws MalformedURLException {
         initialSetUpFront();
+        /*OnStage.setTheStage(new OnlineCast());
+        OnStage.theActorCalled("admin");
+        BrowserStackWebDriver browserStackWebDriver = new BrowserStackWebDriver();
+        WebDriver driver = browserStackWebDriver.configureDriver();*/
     }
 
     @When("se inicia sesión como administrador en OrangeHRM")
