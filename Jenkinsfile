@@ -2,22 +2,25 @@ pipeline {
     agent any
 
     tools {
-        // Usa el nombre del JDK que configuraste en "Global Tool Configuration"
         jdk 'Java11'
     }
 
     stages {
         stage('Checkout') {
             steps {
-                // Clona el mismo repo/branch que configuraste en el job
                 checkout scm
             }
         }
 
         stage('Build & Test') {
             steps {
-                // Como Jenkins está en Windows, usamos bat
                 bat 'gradlew clean test'
+            }
+        }
+
+        stage('Generar reporte Serenity') {
+            steps {
+                bat 'gradlew serenityAggregate'
             }
         }
 
@@ -34,9 +37,9 @@ pipeline {
         }
     }
 
+
     post {
         always {
-            // Opcional: si quieres que Jenkins muestre también los tests como JUnit
             junit '**/serenity/*.xml'
         }
     }
