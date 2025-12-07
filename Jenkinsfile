@@ -34,7 +34,6 @@ pipeline {
     post {
         always {
             junit '**/serenity/*.xml'
-            archiveArtifacts artifacts: 'build/reports/serenity/**', allowEmptyArchive: true
         }
     }
 }
