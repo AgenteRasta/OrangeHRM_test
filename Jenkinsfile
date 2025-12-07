@@ -20,7 +20,7 @@ pipeline {
 
         stage('Generar reporte Serenity') {
             steps {
-                bat 'gradlew serenityAggregate'
+                bat 'gradlew aggregate'
             }
         }
 
