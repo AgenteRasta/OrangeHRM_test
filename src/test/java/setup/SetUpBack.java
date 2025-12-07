@@ -3,6 +3,7 @@ package setup;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
+import org.openqa.selenium.WebDriver;
 
 public class SetUpBack extends SetUpFront{
 
