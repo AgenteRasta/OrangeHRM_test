@@ -14,15 +14,10 @@ pipeline {
 
         stage('Build & Test') {
             steps {
-                bat 'gradlew clean test'
+                bat 'gradlew clean test --info'
             }
         }
 
-        stage('Verificar logs de pruebas') {
-            steps {
-                bat 'type build\\reports\\tests\\test.log'
-            }
-        }
 
         stage('Publicar reporte Serenity') {
             steps {
