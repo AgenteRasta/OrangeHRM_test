@@ -17,7 +17,7 @@ pipeline {
         stage('Build & Test') {
             steps {
                 // Como Jenkins está en Windows, usamos bat
-                bat 'gradlew clean test aggregate'
+                bat 'gradlew clean test'
             }
         }
 
