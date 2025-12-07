@@ -8,7 +8,6 @@ plugins {
 group = 'co.com.davivienda'
 version = '1.0-SNAPSHOT'
 
-defaultTasks 'clean', 'test', 'aggregate'
 
 repositories {
     mavenCentral()
@@ -46,6 +45,6 @@ test {
         events "passed", "skipped", "failed"
     }
 }
-
+defaultTasks 'clean', 'test', 'aggregate'
 gradle.startParameter.continueOnFailure = true
 
