@@ -6,6 +6,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 public class BrowserStackWebDriver {
 
@@ -15,19 +17,24 @@ public class BrowserStackWebDriver {
         String browserstackUser = System.getenv("BROWSERSTACK_USERNAME");
         String browserstackKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
 
+        if (browserstackUser == null || browserstackUser.isEmpty() ||
+                browserstackKey == null || browserstackKey.isEmpty()) {
+            throw new IllegalArgumentException("Las variables de entorno de BrowserStack no están configuradas correctamente.");
+        }
+
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("browserName", "chrome");
         capabilities.setCapability("browserVersion", "latest");
 
-        // Opciones específicas de BrowserStack
-        capabilities.setCapability("bstack:options", new java.util.HashMap<String, Object>() {{
-            put("os", "Windows");
-            put("osVersion", "11");
-            put("projectName", "OrangeHRM Technical Test");
-            put("buildName", "OrangeHRM - BrowserStack");
-            put("sessionName", "Flujo PIM + Directory - Screenplay");
-            put("seleniumVersion", "4.26.0");
-        }});
+        Map<String, Object> bstackOptions = new HashMap<String, Object>();
+        bstackOptions.put("os", "Windows");
+        bstackOptions.put("osVersion", "11");
+        bstackOptions.put("projectName", "OrangeHRM Technical Test");
+        bstackOptions.put("buildName", "OrangeHRM - BrowserStack");
+        bstackOptions.put("sessionName", "Flujo PIM + Directory - Screenplay");
+        bstackOptions.put("seleniumVersion", "4.26.0");
+
+        capabilities.setCapability("bstack:options", bstackOptions);
 
         String url = "https://" + browserstackUser + ":" + browserstackKey + "@hub.browserstack.com/wd/hub";
         driver = new RemoteWebDriver(new URL(url), capabilities);
@@ -37,4 +44,12 @@ public class BrowserStackWebDriver {
     public WebDriver getDriver() {
         return driver;
     }
+
+    public void cerrarDriver() {
+        if (driver != null) {
+            driver.quit();
+            driver = null;
+        }
+    }
 }
+
