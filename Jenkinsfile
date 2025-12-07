@@ -18,6 +18,12 @@ pipeline {
             }
         }
 
+        stage('Verificar logs de pruebas') {
+            steps {
+                bat 'type build\\reports\\tests\\test.log'
+            }
+        }
+
         stage('Publicar reporte Serenity') {
             steps {
                 publishHTML(target: [
