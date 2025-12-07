@@ -1,13 +1,21 @@
-plugins {
-    id 'java'
-    id 'java-library'
-    id 'idea'
-    id 'org.sonarqube' version '3.0'
+// build.gradle
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.0"
+    }
 }
+
+apply plugin: 'java'
+apply plugin: 'java-library'
+apply plugin: 'idea'
+apply plugin: 'org.sonarqube'
+// NO agregar: apply plugin: 'net.serenity-bdd.serenity'
 
 group = 'co.com.davivienda'
 version = '1.0-SNAPSHOT'
-
 
 repositories {
     mavenCentral()
@@ -45,6 +53,10 @@ test {
         events "passed", "skipped", "failed"
     }
 }
-defaultTasks 'clean', 'test', 'aggregate'
+
+defaultTasks 'clean', 'test'
 gradle.startParameter.continueOnFailure = true
+
+
+
 
