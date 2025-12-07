@@ -18,16 +18,10 @@ pipeline {
             }
         }
 
-        stage('Generar reporte Serenity') {
-            steps {
-                bat 'gradlew aggregate'
-            }
-        }
-
         stage('Publicar reporte Serenity') {
             steps {
                 publishHTML(target: [
-                    reportDir: 'target/site/serenity',
+                    reportDir: 'build/reports/serenity',
                     reportFiles: 'index.html',
                     reportName: 'Serenity Report',
                     keepAll: true,
@@ -36,7 +30,6 @@ pipeline {
             }
         }
     }
-
 
     post {
         always {
