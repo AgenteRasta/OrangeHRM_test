@@ -9,6 +9,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import org.openqa.selenium.WebDriver;
@@ -32,7 +33,9 @@ public class ValidacionCreacionEmpleadoStepdefinitions extends SetUpBack {
         /*OnStage.setTheStage(new OnlineCast());
         OnStage.theActorCalled("admin");
         BrowserStackWebDriver browserStackWebDriver = new BrowserStackWebDriver();
-        WebDriver driver = browserStackWebDriver.configureDriver();*/
+        WebDriver driver = browserStackWebDriver.configureDriver();
+        net.thucydides.core.webdriver.ThucydidesWebDriverSupport.useDriver(driver);
+        theActorInTheSpotlight().can(BrowseTheWeb.with(driver));*/
     }
 
     @When("se inicia sesión como administrador en OrangeHRM")

@@ -13,14 +13,17 @@ public class AbrirPagina implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         try {
+            String urlBase = System.getProperty("webdriver.base.url");
+            if (urlBase == null || urlBase.isEmpty()) {
+                urlBase = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
+            }
             actor.wasAbleTo(
-                    Open.url("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+                    Open.url(urlBase)
             );
-            LOGGER.info("Se inicia la pagina correctamente");
-        }catch (Exception e){
-             LOGGER.warning(e.getMessage());
+            LOGGER.info("Se inicia la página correctamente");
+        } catch (Exception e) {
+            LOGGER.warning(e.getMessage());
         }
-
     }
 
     public static AbrirPagina abrirPagina() {
